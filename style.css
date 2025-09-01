@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  background-color: #444;
   color: #fff;
 }
 
@@ -9,7 +9,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
 }
 
 .container {
@@ -123,5 +122,58 @@ main {
   100% {
     fill: transparent;
     d: path("M14 2 l4 0 q 2 0 2 2 l0 4");
+  }
+}
+
+.content-loader:not(.stop) .circle {
+  animation: loading 1.5s infinite var(--delay, 0s);
+}
+
+@keyframes loading {
+  70% {
+    fill: white;
+  }
+}
+
+.circle {
+  transition:
+    transform 0.5s ease-in-out,
+    fill 0.5s ease-in-out,
+    scale 0.13s ease-in-out;
+  transform: translateX(0);
+  transform-origin: center;
+}
+.stop .circle:nth-of-type(1) {
+  transform: translateX(24px);
+  fill: white;
+  stroke-width: 0;
+}
+.stop .circle:nth-of-type(2) {
+  transform: translateX(-24px);
+  fill: white;
+  stroke-width: 0;
+}
+.stop .circle:nth-of-type(3) {
+  fill: green;
+  scale: 2.5;
+  transition-delay: 280ms;
+  transition-timing-function: ease-out;
+}
+
+.check {
+  stroke-dasharray: 77;
+  stroke-dashoffset: 77;
+}
+
+.stop .check {
+  animation: check-mark .5s .3s forwards ease-in-out;
+}
+
+@keyframes check-mark {
+  0% {
+    stroke-dashoffset: 77;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }

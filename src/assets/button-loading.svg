@@ -1,0 +1,13 @@
+<svg class="content-loader" xmlns="http://www.w3.org/2000/svg"
+  width="72" height="24"
+  viewBox="0 0 72 24" fill="none">
+  <!-- <path d="M0 0 L72 0 L72 24 L0 24z" stroke="white" stroke-width="0.5" /> -->
+  <circle class="circle" cx="12" cy="12" r="5" />
+  <circle class="circle" cx="60" cy="12" r="5" style="--delay: 500ms" />
+  <circle class="circle" cx="36" cy="12" r="5" style="--delay: 250ms" />
+
+  <path class="check"
+    d="M31.39757817531307,10.1363885509839L35.45989427549195,16.292118246869414L40.67991037567085,3.7734881932021462A9.514824,9.514824,0,1,1,36.392319320214675,2.529083542039356"
+    stroke="white" stroke-width="1"
+    stroke-linecap="round" stroke-linejoin="round" />
+</svg>
