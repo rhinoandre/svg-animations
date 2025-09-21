@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   root: '.',
+  base: process.env.NODE_ENV === 'production' ? '/svg-animation/' : '/',
   publicDir: 'public',
   build: {
     outDir: 'dist',
