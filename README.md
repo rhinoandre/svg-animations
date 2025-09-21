@@ -2,6 +2,10 @@
 
 A professional Vue.js application showcasing interactive SVG animations with modern UI/UX design.
 
+## Live Demo
+
+🎉 **View the live application**: [https://rhinoandre.github.io/svg-animations/](https://rhinoandre.github.io/svg-animations/)
+
 ## Features
 
 - **Interactive SVG Animations**: Each SVG animation is contained in its own Vue component
