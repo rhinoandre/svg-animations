@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   root: '.',
@@ -12,6 +14,8 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
+    vue(),
     svgLoader(),
+    tailwindcss(),
   ],
 })
