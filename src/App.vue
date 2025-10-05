@@ -54,6 +54,7 @@ import SVGCard from './components/SVGCard.vue'
 import CylinderBoxAnimation from './components/animations/CylinderBoxAnimation.vue'
 import ButtonLoadingAnimation from './components/animations/ButtonLoadingAnimation.vue'
 import FileAnimation from './components/animations/FileAnimation.vue'
+import ThrendUpAndDown from './components/animations/ThrendUpAndDown.vue'
 
 export default {
   name: 'App',
@@ -83,6 +84,13 @@ export default {
         title: 'File Icon Animation',
         description: 'Interactive file icon with folding corner animation effects',
         component: FileAnimation,
+        categories: ['Icons', 'CSS Animations']
+      },
+      {
+        id: 'thrend-up-and-down',
+        title: 'Thrend Up and Down',
+        description: 'Interactive thrend up and down animation',
+        component: ThrendUpAndDown,
         categories: ['Icons', 'CSS Animations']
       }
     ])
