@@ -88,13 +88,11 @@ export default {
     ])
 
     const handleMaximize = (animation) => {
-      console.log('👀 App.vue -> handleMaximize', { animation: animation.title });
       maximizedAnimation.value = animation
       document.body.style.overflow = 'hidden'
     }
 
     const handleCloseModal = () => {
-      console.log('👀 App.vue -> handleCloseModal', { closing: true });
       maximizedAnimation.value = null
       document.body.style.overflow = 'auto'
     }

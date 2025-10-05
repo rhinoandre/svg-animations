@@ -75,8 +75,6 @@
       }
     },
     setup(props) {
-      console.log('👀 FileAnimation.vue -> setup', { isMaximized: props.isMaximized });
-
       const svgRef = ref(null)
       const mainBodyRef = ref(null)
       const foldCornerRef = ref(null)

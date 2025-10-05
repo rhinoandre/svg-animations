@@ -128,8 +128,6 @@
       }
     },
     setup(props) {
-      console.log('👀 CylinderBoxAnimation.vue -> setup', { isMaximized: props.isMaximized });
-
       const svgRef = ref(null)
       const timeline = ref(null)
 
@@ -143,13 +141,8 @@
       const createAnimation = () => {
         if (!svgRef.value) return
 
-        console.log('👀 CylinderBoxAnimation.vue -> createAnimation', { creating: true });
-
         const tl = gsap.timeline({
           paused: true,
-          onComplete: () => {
-            console.log('👀 CylinderBoxAnimation.vue -> onComplete', { animationFinished: true });
-          }
         })
 
         tl.to("#box .top-box-face", {
@@ -211,21 +204,18 @@
 
       const playAnimation = () => {
         if (timeline.value) {
-          console.log('👀 CylinderBoxAnimation.vue -> playAnimation', { playing: true });
           timeline.value.restart()
         }
       }
 
       const reverseAnimation = () => {
         if (timeline.value) {
-          console.log('👀 CylinderBoxAnimation.vue -> reverseAnimation', { reversing: true });
           timeline.value.reverse()
         }
       }
 
       // Watch for hover/touch changes
       watch([() => props.isHovered, () => props.isTouched], ([hovered, touched]) => {
-        console.log('👀 CylinderBoxAnimation.vue -> watch', { hovered, touched });
         if (hovered || touched) {
           playAnimation()
         } else if (!props.autoPlay) {

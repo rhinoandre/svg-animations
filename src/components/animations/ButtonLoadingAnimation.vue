@@ -70,8 +70,6 @@
       }
     },
     setup(props) {
-      console.log('👀 ButtonLoadingAnimation.vue -> setup', { isMaximized: props.isMaximized });
-
       const svgRef = ref(null)
       const successAnimation = ref(false)
 
@@ -83,18 +81,15 @@
       })
 
       const handleMouseEnter = () => {
-        console.log('👀 ButtonLoadingAnimation.vue -> handleMouseEnter', { hovered: true });
         successAnimation.value = true
       }
 
       const handleMouseLeave = () => {
-        console.log('👀 ButtonLoadingAnimation.vue -> handleMouseLeave', { hovered: false });
         successAnimation.value = false
       }
 
       // Watch for hover/touch changes
       watch([() => props.isHovered, () => props.isTouched], ([hovered, touched]) => {
-        console.log('👀 ButtonLoadingAnimation.vue -> watch', { hovered, touched });
         if (hovered || touched) {
           successAnimation.value = true
         } else if (!props.autoPlay) {

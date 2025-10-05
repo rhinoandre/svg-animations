@@ -61,40 +61,32 @@ export default {
   },
   emits: ['maximize'],
   setup(props, { emit }) {
-    console.log('👀 SVGCard.vue -> setup', { animationTitle: props.animation.title });
-
     const isHovered = ref(false)
     const isTouched = ref(false)
 
     const handleMouseEnter = () => {
-      console.log('👀 SVGCard.vue -> handleMouseEnter', { animation: props.animation.title });
       isHovered.value = true
     }
 
     const handleMouseLeave = () => {
-      console.log('👀 SVGCard.vue -> handleMouseLeave', { animation: props.animation.title });
       isHovered.value = false
     }
 
     const handleTouchStart = () => {
-      console.log('👀 SVGCard.vue -> handleTouchStart', { animation: props.animation.title });
       isTouched.value = true
     }
 
     const handleTouchEnd = () => {
-      console.log('👀 SVGCard.vue -> handleTouchEnd', { animation: props.animation.title });
       setTimeout(() => {
         isTouched.value = false
       }, 300) // Keep the animation visible for a moment
     }
 
     const handleMaximize = () => {
-      console.log('👀 SVGCard.vue -> handleMaximize', { animation: props.animation.title });
       emit('maximize', props.animation)
     }
 
     const handleDoubleClick = () => {
-      console.log('👀 SVGCard.vue -> handleDoubleClick', { animation: props.animation.title });
       emit('maximize', props.animation)
     }
 
