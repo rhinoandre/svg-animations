@@ -11,45 +11,14 @@
           v-for="animation in animations"
           :key="animation.id"
           :animation="animation"
-          @maximize="handleMaximize"
         />
       </div>
     </main>
-
-    <!-- Modal for expanded view -->
-    <div
-      v-if="maximizedAnimation"
-      class="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center z-50 p-8"
-      @click="handleCloseModal"
-    >
-      <div class="bg-white rounded-3xl p-8 max-w-[90vw] max-h-[90vh] relative shadow-2xl flex flex-col items-center" @click.stop>
-        <button
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-all duration-200 flex items-center justify-center"
-          @click="handleCloseModal"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <div class="flex-1 flex items-center justify-center my-4">
-          <component
-            :is="maximizedAnimation.component"
-            :is-maximized="true"
-            :auto-play="true"
-          />
-        </div>
-        <div class="text-center mt-8">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ maximizedAnimation.title }}</h3>
-          <p class="text-gray-600 leading-relaxed max-w-lg">{{ maximizedAnimation.description }}</p>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-import { shallowRef, ref } from 'vue'
+import { shallowRef } from 'vue'
 import SVGCard from './components/SVGCard.vue'
 import CylinderBoxAnimation from './components/animations/CylinderBoxAnimation.vue'
 import ButtonLoadingAnimation from './components/animations/ButtonLoadingAnimation.vue'
@@ -62,8 +31,6 @@ export default {
     SVGCard
   },
   setup() {
-    const maximizedAnimation = ref(null)
-
     const animations = shallowRef([
       {
         id: 'cylinder-box',
@@ -95,21 +62,8 @@ export default {
       }
     ])
 
-    const handleMaximize = (animation) => {
-      maximizedAnimation.value = animation
-      document.body.style.overflow = 'hidden'
-    }
-
-    const handleCloseModal = () => {
-      maximizedAnimation.value = null
-      document.body.style.overflow = 'auto'
-    }
-
     return {
-      animations,
-      maximizedAnimation,
-      handleMaximize,
-      handleCloseModal
+      animations
     }
   }
 }

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Keep layout stable when a maximized card locks body scroll */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 0.5rem;
